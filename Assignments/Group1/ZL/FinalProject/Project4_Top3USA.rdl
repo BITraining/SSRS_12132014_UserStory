@@ -53,6 +53,7 @@
                         </Textbox>
                       </ReportItems>
                       <KeepTogether>true</KeepTogether>
+                      <DocumentMapLabel>=Fields!CategoryName.Value</DocumentMapLabel>
                       <Style>
                         <Border>
                           <Style>None</Style>
