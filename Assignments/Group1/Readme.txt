@@ -1,7 +1,7 @@
 role assignment for Group 1 members
 
 --------------	Issue 1  -+-	Issue 2 -+-	Issue 3 -+-	Issue 4 --
-developer:	Weibin   -+-    Ming    -+-      May	 -+-     ??
+developer:	Weibin   -+-    Ming    -+-      May	-+-     ??
 Code reviewer:	 Ming	 -+-    Weibin	-+-      ??    -+-     ??
 tester:          May	 -+-     ??     -+-      ??    -+-     ??		
 
