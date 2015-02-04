@@ -14,12 +14,12 @@
       <FullPath>demoDetail2.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>rptTOPBestSellingProductsinUSA.rdl</Name>
-      <FullPath>rptTOPBestSellingProductsinUSA.rdl</FullPath>
-    </ProjectItem>
-    <ProjectItem>
       <Name>demorptProductDetails.rdl</Name>
       <FullPath>demorptProductDetails.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>rptTOPBestSellingProductsinUSA.rdl</Name>
+      <FullPath>rptTOPBestSellingProductsinUSA.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>
