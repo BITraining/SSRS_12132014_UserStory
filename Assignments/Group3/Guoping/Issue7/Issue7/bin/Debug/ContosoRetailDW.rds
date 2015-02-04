@@ -2,7 +2,7 @@
 <RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="ContosoRetailDW">
   <ConnectionProperties>
     <Extension>SQL</Extension>
-    <ConnectString>Data Source=04-IT-14830\SQL2014WGP;Initial Catalog=ContosoRetailDW</ConnectString>
+    <ConnectString>Data Source=.;Initial Catalog=ContosoRetailDW</ConnectString>
     <IntegratedSecurity>true</IntegratedSecurity>
   </ConnectionProperties>
   <DataSourceID>396f6996-1071-4476-b492-5017648a4bc2</DataSourceID>
