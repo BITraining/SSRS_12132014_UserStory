@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Issue-5", "Issue-5\Issue-5.rptproj", "{A6B2143F-FEE6-4A5B-847E-5F44311BAE63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6B2143F-FEE6-4A5B-847E-5F44311BAE63}.Debug|Default.ActiveCfg = Debug
+		{A6B2143F-FEE6-4A5B-847E-5F44311BAE63}.Debug|Default.Build.0 = DebugLocal
+		{A6B2143F-FEE6-4A5B-847E-5F44311BAE63}.Debug|Default.Deploy.0 = DebugLocal
+		{A6B2143F-FEE6-4A5B-847E-5F44311BAE63}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{A6B2143F-FEE6-4A5B-847E-5F44311BAE63}.DebugLocal|Default.Build.0 = DebugLocal
+		{A6B2143F-FEE6-4A5B-847E-5F44311BAE63}.Release|Default.ActiveCfg = Release
+		{A6B2143F-FEE6-4A5B-847E-5F44311BAE63}.Release|Default.Build.0 = Release
+		{A6B2143F-FEE6-4A5B-847E-5F44311BAE63}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

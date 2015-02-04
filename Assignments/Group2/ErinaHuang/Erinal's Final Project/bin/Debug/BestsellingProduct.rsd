@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>Contoso</DataSourceReference>
+      <CommandText>SELECT        DimDate.CalendarYear, DimProduct.ProductName, SUM(FactSales.SalesQuantity - FactSales.DiscountQuantity) AS NetSoldQuantity, 
+                         CAST(SUM(FactSales.SalesAmount - FactSales.ReturnAmount - FactSales.DiscountAmount) AS decimal(12, 2)) AS NetRevenue
+FROM            DimDate INNER JOIN
+                         FactSales ON DimDate.Datekey = FactSales.DateKey INNER JOIN
+                         DimProduct ON DimProduct.ProductKey = FactSales.ProductKey INNER JOIN
+                         DimStore AS DimStore_1 ON FactSales.StoreKey = DimStore_1.StoreKey INNER JOIN
+                         DimGeography AS DimGeography_1 ON DimStore_1.GeographyKey = DimGeography_1.GeographyKey INNER JOIN
+                         DimSalesTerritory ON DimGeography_1.GeographyKey = DimSalesTerritory.GeographyKey
+GROUP BY DimProduct.ProductName, DimDate.CalendarYear
+ORDER BY NetRevenue DESC, DimProduct.ProductName</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="CalendarYear">
+        <DataField>CalendarYear</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="ProductName">
+        <DataField>ProductName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="NetSoldQuantity">
+        <DataField>NetSoldQuantity</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="NetRevenue">
+        <DataField>NetRevenue</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>1. This project requires a function to be created in the datasource. Script is generated as below:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>USE [ContosoRetailDW]
+GO
+
+/****** Object:  UserDefinedFunction [dbo].[fnSplitString]    Script Date: 2/4/2015 1:00:50 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE FUNCTION [dbo].[fnSplitString] 
+( 
+    @String VARCHAR(max), /* input string */
+   @Delimeter char(1),   /* delimiter */
+   @TrimSpace bit )      /* kill whitespace? */
+RETURNS @Table TABLE ( [Val] VARCHAR(4000) )
+AS
+BEGIN
+    DECLARE @Val    VARCHAR(4000)
+    WHILE LEN(@String) &gt; 0
+    BEGIN
+        SET @Val    = LEFT(@String,
+             ISNULL(NULLIF(CHARINDEX(@Delimeter, @String) - 1, -1),
+             LEN(@String)))
+        SET @String = SUBSTRING(@String,
+             ISNULL(NULLIF(CHARINDEX(@Delimeter, @String), 0),
+             LEN(@String)) + 1, LEN(@String))
+  IF @TrimSpace = 1 Set @Val = LTRIM(RTRIM(@Val))
+    INSERT INTO @Table ( [Val] )
+        VALUES ( @Val )
+    END
+    RETURN
+END
+
+GO
+
+2. The parameters for the summary dataset are set manually, so that the function above can be used. The delimeter is set as "|". This is refer to https://technicalreflections.wordpress.com/2011/05/12/ssrs-parameters-and-sql-functionsstored-procedures/</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>3. Instead of doing "link" from summary report to detail report, subreport report item is used, together with toggling feature.
+</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Height>7.52083in</Height>
+        <Width>8.90625in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <Height>7.52083in</Height>
+    <Style />
+  </Body>
+  <Width>8.90625in</Width>
+  <Page>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>be34e3ca-bfd2-4650-9106-a4e096bafc20</rd:ReportID>
+</Report>
