@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "FinalProject_ZL", "FinalProject\FinalProject_ZL.rptproj", "{2E1ED4C0-F837-44DB-AA48-ED642AE07451}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E1ED4C0-F837-44DB-AA48-ED642AE07451}.Debug|Default.ActiveCfg = Debug
+		{2E1ED4C0-F837-44DB-AA48-ED642AE07451}.Debug|Default.Build.0 = DebugLocal
+		{2E1ED4C0-F837-44DB-AA48-ED642AE07451}.Debug|Default.Deploy.0 = DebugLocal
+		{2E1ED4C0-F837-44DB-AA48-ED642AE07451}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{2E1ED4C0-F837-44DB-AA48-ED642AE07451}.DebugLocal|Default.Build.0 = DebugLocal
+		{2E1ED4C0-F837-44DB-AA48-ED642AE07451}.Release|Default.ActiveCfg = Release
+		{2E1ED4C0-F837-44DB-AA48-ED642AE07451}.Release|Default.Build.0 = Release
+		{2E1ED4C0-F837-44DB-AA48-ED642AE07451}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
