@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Report Project6", "Report Project6\Report Project6.rptproj", "{A582CDF7-5BE4-4C83-A488-0FD53E68FA72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A582CDF7-5BE4-4C83-A488-0FD53E68FA72}.Debug|Default.ActiveCfg = Debug
+		{A582CDF7-5BE4-4C83-A488-0FD53E68FA72}.Debug|Default.Build.0 = DebugLocal
+		{A582CDF7-5BE4-4C83-A488-0FD53E68FA72}.Debug|Default.Deploy.0 = DebugLocal
+		{A582CDF7-5BE4-4C83-A488-0FD53E68FA72}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{A582CDF7-5BE4-4C83-A488-0FD53E68FA72}.DebugLocal|Default.Build.0 = DebugLocal
+		{A582CDF7-5BE4-4C83-A488-0FD53E68FA72}.Release|Default.ActiveCfg = Release
+		{A582CDF7-5BE4-4C83-A488-0FD53E68FA72}.Release|Default.Build.0 = Release
+		{A582CDF7-5BE4-4C83-A488-0FD53E68FA72}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

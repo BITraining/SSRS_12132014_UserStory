@@ -1,1 +1,8 @@
-Repository for Group1
+role assignment for Group 1 members
+
+--------------	Issue 1  -+-	Issue 2 -+-	Issue 3 -+-	Issue 4 --
+developer:	Weibin   -+-    Ming    -+-      May	-+-     Sherry
+Code reviewer:	 Ming	 -+-    Weibin	-+-      Sherry -+-     Liang
+tester:          May	 -+-    Sherry  -+-      Liang  -+-     May		
+
+
