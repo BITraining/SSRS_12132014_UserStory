@@ -396,7 +396,7 @@ dbo.FactSales fs INNER JOIN
 dbo.DimProduct p ON p.ProductKey = fs.ProductKey INNER JOIN dbo.DimDate d
 ON d.Datekey = fs.DateKey
 WHERE p.ProductSubcategoryKey= @SubCategoryKey
-ORDER BY p.ProductName</CommandText>
+ORDER BY p.ProductName ASC,d.FullDateLabel DESC</CommandText>
       </Query>
       <Fields>
         <Field Name="ProductName">

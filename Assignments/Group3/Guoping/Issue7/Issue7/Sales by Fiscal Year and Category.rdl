@@ -61,6 +61,7 @@
                               <Value>=Sum(Fields!Sales.Value)</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Format>C0</Format>
                               </Style>
                             </TextRun>
@@ -108,6 +109,8 @@
                           <TextRun>
                             <Value>=Fields!OrderYear.Value</Value>
                             <Style>
+                              <FontSize>12pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                               <Color>White</Color>
                             </Style>
                           </TextRun>
@@ -211,6 +214,8 @@
                           <TextRun>
                             <Value>=Fields!ProdCat.Value</Value>
                             <Style>
+                              <FontSize>12pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                               <Color>White</Color>
                             </Style>
                           </TextRun>
@@ -254,6 +259,7 @@
                               <TextRun>
                                 <Value>=Fields!SubCat.Value</Value>
                                 <Style>
+                                  <FontWeight>Bold</FontWeight>
                                   <TextDecoration>Underline</TextDecoration>
                                   <Color>White</Color>
                                 </Style>
@@ -336,10 +342,10 @@
         <Style />
       </Textbox>
     </ReportItems>
-    <Height>2.20833in</Height>
+    <Height>2.15625in</Height>
     <Style />
   </Body>
-  <Width>4.59375in</Width>
+  <Width>4.60417in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -365,16 +371,17 @@
           </QueryParameter>
         </QueryParameters>
         <CommandText>SET DATEFORMAT mdy
-SELECT      PC.ProductCategoryName AS ProdCat, PS.ProductSubcategoryName AS SubCat,PS.ProductSubcategoryKey AS SubCatgoryKey, DATEPART(yy, FS.DateKey) AS OrderYear, 'Q' + DATENAME(qq, FS.DateKey) AS OrderQtr, 
+SELECT      PC.ProductCategoryName AS ProdCat, PS.ProductSubcategoryName AS SubCat,PS.ProductSubcategoryKey AS SubCatgoryKey, d.FiscalYearLabel AS OrderYear, d.FiscalQuarterLabel AS OrderQtr, 
             SUM(FS.UnitPrice * FS.SalesQuantity) AS Sales
-FROM        [dbo].[FactSales] FS INNER JOIN
-            [dbo].[DimProduct] P ON FS.ProductKey = P.ProductKey INNER JOIN 
-			[dbo].[DimProductSubcategory] PS ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey INNER JOIN 
-			[dbo].[DimProductCategory] PC ON pc.ProductCategoryKey=ps.ProductCategoryKey INNER JOIN 
-			[dbo].[DimStore] S ON s.StoreKey=fs.StoreKey INNER JOIN 
-			[dbo].[DimGeography] g ON s.GeographyKey=g.GeographyKey		
-WHERE       g.RegionCountryName =@Country
-GROUP BY    DATEPART(yy, FS.DateKey), PC.ProductCategoryName, PS.ProductSubcategoryName, PS.ProductSubcategoryKey, 'Q' + DATENAME(qq, FS.DateKey)
+FROM        dbo.FactSales FS INNER JOIN
+			dbo.DimDate D ON D.Datekey = FS.DateKey INNER JOIN
+            dbo.DimProduct P ON FS.ProductKey = P.ProductKey INNER JOIN 
+			dbo.DimProductSubcategory PS ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey INNER JOIN 
+			dbo.DimProductCategory PC ON pc.ProductCategoryKey=ps.ProductCategoryKey INNER JOIN 
+			dbo.DimStore S ON s.StoreKey=fs.StoreKey INNER JOIN 
+			dbo.DimGeography g ON s.GeographyKey=g.GeographyKey		
+WHERE       g.RegionCountryName = @Country
+GROUP BY    d.FiscalYearLabel, PC.ProductCategoryName, PS.ProductSubcategoryName, PS.ProductSubcategoryKey, d.FiscalQuarterLabel
 ORDER BY pc.ProductCategoryName,ps.ProductSubcategoryName ASC,Sales DESC</CommandText>
       </Query>
       <Fields>
@@ -392,7 +399,7 @@ ORDER BY pc.ProductCategoryName,ps.ProductSubcategoryName ASC,Sales DESC</Comman
         </Field>
         <Field Name="OrderYear">
           <DataField>OrderYear</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="OrderQtr">
           <DataField>OrderQtr</DataField>
