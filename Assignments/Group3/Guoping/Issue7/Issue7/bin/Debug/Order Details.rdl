@@ -354,7 +354,7 @@
         <DataSetName>SalesDetail</DataSetName>
         <Top>0.4675in</Top>
         <Height>0.5625in</Height>
-        <Width>7.22792in</Width>
+        <Width>7.22793in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -363,7 +363,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.875in</Height>
+    <Height>1.07292in</Height>
     <Style />
   </Body>
   <Width>7.30083in</Width>
@@ -437,12 +437,7 @@ ORDER BY p.ProductName</CommandText>
   <ReportParameters>
     <ReportParameter Name="SubCategoryKey">
       <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>1</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>Sub Category Key</Prompt>
+      <Prompt>Sub Category</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>SubCategory</DataSetName>

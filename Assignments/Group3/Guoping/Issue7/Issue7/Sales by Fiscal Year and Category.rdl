@@ -229,7 +229,6 @@
                       <PaddingRight>2pt</PaddingRight>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
@@ -268,6 +267,11 @@
                             <Action>
                               <Drillthrough>
                                 <ReportName>Order Details</ReportName>
+                                <Parameters>
+                                  <Parameter Name="SubCategoryKey">
+                                    <Value>=Fields!SubCatgoryKey.Value</Value>
+                                  </Parameter>
+                                </Parameters>
                               </Drillthrough>
                             </Action>
                           </Actions>
@@ -302,8 +306,8 @@
         <DataSetName>SalesDetail</DataSetName>
         <Top>1in</Top>
         <Left>0.0625in</Left>
-        <Height>1.11458in</Height>
-        <Width>4.45833in</Width>
+        <Height>1.11459in</Height>
+        <Width>4.45832in</Width>
         <Style />
       </Tablix>
       <Textbox Name="Title">
@@ -361,7 +365,7 @@
           </QueryParameter>
         </QueryParameters>
         <CommandText>SET DATEFORMAT mdy
-SELECT      PC.ProductCategoryName AS ProdCat, PS.ProductSubcategoryName AS SubCat, DATEPART(yy, FS.DateKey) AS OrderYear, 'Q' + DATENAME(qq, FS.DateKey) AS OrderQtr, 
+SELECT      PC.ProductCategoryName AS ProdCat, PS.ProductSubcategoryName AS SubCat,PS.ProductSubcategoryKey AS SubCatgoryKey, DATEPART(yy, FS.DateKey) AS OrderYear, 'Q' + DATENAME(qq, FS.DateKey) AS OrderQtr, 
             SUM(FS.UnitPrice * FS.SalesQuantity) AS Sales
 FROM        [dbo].[FactSales] FS INNER JOIN
             [dbo].[DimProduct] P ON FS.ProductKey = P.ProductKey INNER JOIN 
@@ -370,7 +374,8 @@ FROM        [dbo].[FactSales] FS INNER JOIN
 			[dbo].[DimStore] S ON s.StoreKey=fs.StoreKey INNER JOIN 
 			[dbo].[DimGeography] g ON s.GeographyKey=g.GeographyKey		
 WHERE       g.RegionCountryName =@Country
-GROUP BY    DATEPART(yy, FS.DateKey), PC.ProductCategoryName, PS.ProductSubcategoryName,  'Q' + DATENAME(qq, FS.DateKey)</CommandText>
+GROUP BY    DATEPART(yy, FS.DateKey), PC.ProductCategoryName, PS.ProductSubcategoryName, PS.ProductSubcategoryKey, 'Q' + DATENAME(qq, FS.DateKey)
+ORDER BY pc.ProductCategoryName,ps.ProductSubcategoryName ASC,Sales DESC</CommandText>
       </Query>
       <Fields>
         <Field Name="ProdCat">
@@ -380,6 +385,10 @@ GROUP BY    DATEPART(yy, FS.DateKey), PC.ProductCategoryName, PS.ProductSubcateg
         <Field Name="SubCat">
           <DataField>SubCat</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SubCatgoryKey">
+          <DataField>SubCatgoryKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="OrderYear">
           <DataField>OrderYear</DataField>
