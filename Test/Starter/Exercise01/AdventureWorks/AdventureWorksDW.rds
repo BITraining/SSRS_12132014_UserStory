@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>AdventureWorksDW</Name>
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=localhost;Initial Catalog=AdventureWorksDW2008</ConnectString>
+    <IntegratedSecurity>true</IntegratedSecurity>
+  </ConnectionProperties>
+  <DataSourceID xmlns="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">144b093a-cecb-4d98-aa8e-5b2c679548e3</DataSourceID>
+</RptDataSource>
