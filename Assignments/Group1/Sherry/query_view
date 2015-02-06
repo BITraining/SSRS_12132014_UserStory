@@ -1,0 +1,26 @@
+USE [ContosoRetailDW]
+GO
+
+/****** Object:  View [dbo].[vTopSaleProduct]    Script Date: 2/5/2015 8:01:47 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[vTopSaleProduct]
+AS
+SELECT   [dbo].[DimProduct].[ProductKey] as prodkey, [dbo].[DimProduct].[ProductName] as product, [dbo].[DimProductCategory].[ProductCategoryName] as category,
+                      sum(dbo.FactSales.SalesAmount-dbo.FactSales.DiscountAmount) AS SalesAmount, 
+					  sum(dbo.FactSales.SalesQuantity-dbo.FactSales.[ReturnQuantity]-dbo.FactSales.[DiscountQuantity]) AS NetSoldQuantity                   
+FROM        [dbo].[FactSales] INNER JOIN
+                      [dbo].[DimProduct] ON dbo.FactSales.[ProductKey]= [dbo].[DimProduct].ProductKey INNER JOIN
+					  [dbo].[DimProductSubcategory] ON dbo.[DimProduct].[ProductSubcategoryKey] = [dbo].[DimProductSubcategory].[ProductSubcategoryKey] INNER JOIN
+					  [dbo].[DimProductCategory] ON [dbo].[DimProductSubcategory].[ProductCategoryKey] = [dbo].[DimProductCategory].[ProductCategoryKey] INNER JOIN
+					  [dbo].[DimStore] ON dbo.FactSales.[StoreKey] = [dbo].[DimStore].[StoreKey] INNER JOIN
+					  [dbo].[DimSalesTerritory] ON dbo.[DimStore].[GeographyKey] = [dbo].[DimSalesTerritory].[GeographyKey]
+Where       [SalesTerritoryCountry] = 'United States' 
+GROUP BY              [dbo].[DimProduct].[ProductName],
+                      [dbo].[DimProduct].[ProductKey],
+                      [dbo].[DimProductCategory].[ProductCategoryName]
+GO
