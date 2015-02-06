@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <Description />
+  <DataSet Name="TOPNRevenue">
+    <Query>
+      <DataSourceReference>ContosoDW</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@prmYear">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>true</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT        P.ProductName, SUM(F.SalesAmount) AS Revenue, SUM(F.SalesQuantity - F.ReturnQuantity) AS 'Net Sold Quantity', 
+                         SUM(F.SalesAmount - F.ReturnAmount - F.TotalCost) AS 'Net Revenue', P.ProductKey
+FROM            FactSales AS F INNER JOIN
+                         DimProduct AS P ON F.ProductKey = P.ProductKey
+WHERE        (YEAR(F.DateKey) IN (@prmYear))
+GROUP BY P.ProductName, P.ProductKey
+ORDER BY revenue DESC</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="ProductName">
+        <DataField>ProductName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Revenue">
+        <DataField>Revenue</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Net_Sold_Quantity">
+        <DataField>Net Sold Quantity</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Net_Revenue">
+        <DataField>Net Revenue</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="ProductKey">
+        <DataField>ProductKey</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

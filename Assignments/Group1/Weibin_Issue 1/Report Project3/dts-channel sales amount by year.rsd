@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>ContosoDW</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@PrmYear">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT        channelKey, YEAR(DateKey) AS Year, SUM(SalesAmount) AS TotalSales
+FROM            FactSales
+WHERE        (YEAR(DateKey) = @PrmYear)
+GROUP BY channelKey, YEAR(DateKey)
+ORDER BY channelKey, Year DESC</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="channelKey">
+        <DataField>channelKey</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Year">
+        <DataField>Year</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="TotalSales">
+        <DataField>TotalSales</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
