@@ -599,7 +599,7 @@
                             <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
-                        <Textbox Name="UnitPrice2">
+                        <Textbox Name="status">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -609,6 +609,7 @@
                                   <Value>=Fields!Status.Value</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -617,7 +618,6 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>UnitPrice</rd:DefaultName>
                           <Top>2.5468in</Top>
                           <Left>2.10486in</Left>
                           <Height>0.25in</Height>
@@ -632,6 +632,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
+                            <BackgroundColor>=IIf(Fields!Status.Value = "On", "White", "Pink")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1316,6 +1317,11 @@ FROM        DimProduct INNER JOIN
   <ReportParameters>
     <ReportParameter Name="prmProdcutKey">
       <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>1</Value>
+        </Values>
+      </DefaultValue>
       <Prompt>ReportParameter1</Prompt>
       <Hidden>true</Hidden>
     </ReportParameter>

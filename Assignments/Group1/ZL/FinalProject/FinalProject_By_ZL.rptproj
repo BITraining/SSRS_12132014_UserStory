@@ -19,20 +19,16 @@
       <FullPath>Project1_salesByYearAndChannel.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Project2_2ndTry.rdl</Name>
-      <FullPath>Project2_2ndTry.rdl</FullPath>
+      <Name>Project4_Top3USA.rdl</Name>
+      <FullPath>Project4_Top3USA.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Project2_TopNPopular_1stTry.rdl</Name>
-      <FullPath>Project2_TopNPopular_1stTry.rdl</FullPath>
+      <Name>Project2_TopNBestSelling.rdl</Name>
+      <FullPath>Project2_TopNBestSelling.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>Project3_ProductDetails.rdl</Name>
       <FullPath>Project3_ProductDetails.rdl</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>Project4_Top3USA.rdl</Name>
-      <FullPath>Project4_Top3USA.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>
