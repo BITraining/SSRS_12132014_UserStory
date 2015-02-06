@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="ContosoDetail">
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Contoso">
   <ConnectionProperties>
     <Extension>SQL</Extension>
-    <ConnectString>Data Source=m-think\SQLSERVER_2;Initial Catalog=ContosoRetailDW</ConnectString>
+    <ConnectString>Data Source=.;Initial Catalog="Contoso Retail"</ConnectString>
     <IntegratedSecurity>true</IntegratedSecurity>
   </ConnectionProperties>
   <DataSourceID>445f7162-9e89-4491-9abb-982b7af74465</DataSourceID>

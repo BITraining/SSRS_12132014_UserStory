@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Report Project6", "Report Project6\Report Project6.rptproj", "{E6086F48-398C-40FF-82D4-A28E222F4682}"
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Report Project6", "Report Project61.rptproj", "{E6086F48-398C-40FF-82D4-A28E222F4682}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
