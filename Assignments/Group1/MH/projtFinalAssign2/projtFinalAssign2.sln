@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "projtFinalAssign2", "projtFinalAssign2.rptproj", "{D6C712AA-765C-460F-85CD-9A1E7F593DDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6C712AA-765C-460F-85CD-9A1E7F593DDD}.Debug|Default.ActiveCfg = Debug
+		{D6C712AA-765C-460F-85CD-9A1E7F593DDD}.Debug|Default.Build.0 = DebugLocal
+		{D6C712AA-765C-460F-85CD-9A1E7F593DDD}.Debug|Default.Deploy.0 = DebugLocal
+		{D6C712AA-765C-460F-85CD-9A1E7F593DDD}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{D6C712AA-765C-460F-85CD-9A1E7F593DDD}.DebugLocal|Default.Build.0 = DebugLocal
+		{D6C712AA-765C-460F-85CD-9A1E7F593DDD}.DebugLocal|Default.Deploy.0 = DebugLocal
+		{D6C712AA-765C-460F-85CD-9A1E7F593DDD}.Release|Default.ActiveCfg = Release
+		{D6C712AA-765C-460F-85CD-9A1E7F593DDD}.Release|Default.Build.0 = Release
+		{D6C712AA-765C-460F-85CD-9A1E7F593DDD}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
