@@ -396,7 +396,6 @@
                       </Style>
                     </Chart>
                     <ColSpan>3</ColSpan>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell />
@@ -842,7 +841,7 @@ from	dbo.fnSplitString(@Years,'|',1) yr
 		cross join dbo.fnSplitString(@Countries,'|',1) c
 		cross apply (
 			SELECT        TOP (10) ds.StoreName, dg.ContinentName, dg.RegionCountryName, SUM(fs.SalesQuantity) - SUM(fs.ReturnQuantity) AS QuantitySold, dd.CalendarYear, 
-			                        SUM(fs.SalesAmount) - SUM(fs.DiscountAmount) - SUM(fs.ReturnAmount) AS Revenue
+			                        SUM(fs.SalesAmount) - SUM(fs.ReturnAmount) AS Revenue
 			FROM            DimStore AS ds INNER JOIN
 										FactSales AS fs ON ds.StoreKey = fs.StoreKey INNER JOIN
 										DimDate AS dd ON fs.DateKey = dd.Datekey INNER JOIN
