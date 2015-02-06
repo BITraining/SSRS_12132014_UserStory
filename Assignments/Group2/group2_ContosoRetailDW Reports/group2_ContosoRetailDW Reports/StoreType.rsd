@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <Description />
+  <DataSet Name="StoreType">
+    <Query>
+      <DataSourceReference>ContosoRetailDW</DataSourceReference>
+      <CommandText>SELECT DISTINCT StoreType
+FROM            DimStore</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="StoreType">
+        <DataField>StoreType</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

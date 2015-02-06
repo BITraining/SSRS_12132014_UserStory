@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <Description />
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>ContosoRetailDW</DataSourceReference>
+      <CommandText>WITH cte AS (SELECT        MAX(fs.StoreKey) AS StoreKey, MAX(st.SalesTerritoryCountry) AS SalesTerritoryCountry, MAX(dd.CalendarYear) AS CalendarYear, 
+                                                      MAX(dd.CalendarYearLabel) AS YearLabel, SUM(fs.SalesQuantity - fs.DiscountQuantity - fs.ReturnQuantity) AS SumQuantity, 
+                                                      SUM(fs.SalesAmount - fs.DiscountAmount - fs.ReturnAmount) AS SumNetRevenue
+                             FROM            FactSales AS fs INNER JOIN
+                                                      DimDate AS dd ON fs.DateKey = dd.Datekey INNER JOIN
+                                                      DimStore AS ds ON fs.StoreKey = ds.StoreKey INNER JOIN
+                                                      DimSalesTerritory AS st ON ds.GeographyKey = st.GeographyKey
+                             GROUP BY fs.StoreKey, dd.CalendarYear, dd.CalendarYearLabel)
+    SELECT        cte_1.StoreKey, ds2.StoreName, ds2.StoreType, cte_1.SalesTerritoryCountry, ds2.GeographyKey, cte_1.CalendarYear, cte_1.YearLabel, cte_1.SumQuantity, 
+                              cte_1.SumNetRevenue, ds2.GeoLocation, ds2.Geometry
+     FROM            cte AS cte_1 INNER JOIN
+                              DimStore AS ds2 ON cte_1.StoreKey = ds2.StoreKey</CommandText>
+      <Timeout>240</Timeout>
+    </Query>
+    <Fields>
+      <Field Name="StoreKey">
+        <DataField>StoreKey</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="StoreName">
+        <DataField>StoreName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="StoreType">
+        <DataField>StoreType</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SalesTerritoryCountry">
+        <DataField>SalesTerritoryCountry</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="GeographyKey">
+        <DataField>GeographyKey</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="CalendarYear">
+        <DataField>CalendarYear</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="YearLabel">
+        <DataField>YearLabel</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SumQuantity">
+        <DataField>SumQuantity</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="SumNetRevenue">
+        <DataField>SumNetRevenue</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="GeoLocation">
+        <DataField>GeoLocation</DataField>
+        <rd:TypeName>Microsoft.SqlServer.Types.SqlGeography</rd:TypeName>
+      </Field>
+      <Field Name="Geometry">
+        <DataField>Geometry</DataField>
+        <rd:TypeName>Microsoft.SqlServer.Types.SqlGeometry</rd:TypeName>
+      </Field>
+    </Fields>
+    <Filters>
+      <Filter>
+        <FilterExpression>=Fields!CalendarYear.Value</FilterExpression>
+        <Operator>In</Operator>
+        <FilterValues>
+          <FilterValue>=Parameters!Year.Value</FilterValue>
+        </FilterValues>
+      </Filter>
+      <Filter>
+        <FilterExpression>=Fields!SalesTerritoryCountry.Value</FilterExpression>
+        <Operator>In</Operator>
+        <FilterValues>
+          <FilterValue>=Parameters!Country.Value</FilterValue>
+        </FilterValues>
+      </Filter>
+      <Filter>
+        <FilterExpression>=Fields!StoreType.Value</FilterExpression>
+        <Operator>In</Operator>
+        <FilterValues>
+          <FilterValue>=Parameters!StoreType.Value</FilterValue>
+        </FilterValues>
+      </Filter>
+    </Filters>
+  </DataSet>
+</SharedDataSet>

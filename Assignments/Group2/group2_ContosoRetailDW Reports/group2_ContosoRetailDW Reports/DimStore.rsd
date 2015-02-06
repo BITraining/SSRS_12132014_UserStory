@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>ContosoRetailDW</DataSourceReference>
+      <CommandText>SELECT        StoreKey, GeographyKey, StoreManager, StoreType, StoreName, StoreDescription, Status, OpenDate, CloseDate, EntityKey, ZipCode, ZipCodeExtension, 
+                         StorePhone, StoreFax, AddressLine1, AddressLine2, CloseReason, EmployeeCount, SellingAreaSize, LastRemodelDate, GeoLocation, Geometry, ETLLoadID, 
+                         LoadDate, UpdateDate
+FROM            DimStore</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="StoreKey">
+        <DataField>StoreKey</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="GeographyKey">
+        <DataField>GeographyKey</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="StoreManager">
+        <DataField>StoreManager</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="StoreType">
+        <DataField>StoreType</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="StoreName">
+        <DataField>StoreName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="StoreDescription">
+        <DataField>StoreDescription</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Status">
+        <DataField>Status</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="OpenDate">
+        <DataField>OpenDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="CloseDate">
+        <DataField>CloseDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="EntityKey">
+        <DataField>EntityKey</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="ZipCode">
+        <DataField>ZipCode</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ZipCodeExtension">
+        <DataField>ZipCodeExtension</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="StorePhone">
+        <DataField>StorePhone</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="StoreFax">
+        <DataField>StoreFax</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="AddressLine1">
+        <DataField>AddressLine1</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="AddressLine2">
+        <DataField>AddressLine2</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="CloseReason">
+        <DataField>CloseReason</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="EmployeeCount">
+        <DataField>EmployeeCount</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="SellingAreaSize">
+        <DataField>SellingAreaSize</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+      <Field Name="LastRemodelDate">
+        <DataField>LastRemodelDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="GeoLocation">
+        <DataField>GeoLocation</DataField>
+        <rd:TypeName>Microsoft.SqlServer.Types.SqlGeography</rd:TypeName>
+      </Field>
+      <Field Name="Geometry">
+        <DataField>Geometry</DataField>
+        <rd:TypeName>Microsoft.SqlServer.Types.SqlGeometry</rd:TypeName>
+      </Field>
+      <Field Name="ETLLoadID">
+        <DataField>ETLLoadID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="LoadDate">
+        <DataField>LoadDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="UpdateDate">
+        <DataField>UpdateDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
