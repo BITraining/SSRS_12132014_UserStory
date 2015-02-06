@@ -10,12 +10,16 @@
   <DataSets />
   <Reports>
     <ProjectItem>
-      <Name>Order Details.rdl</Name>
-      <FullPath>Order Details.rdl</FullPath>
+      <Name>Order Details by SubCategory.rdl</Name>
+      <FullPath>Order Details by SubCategory.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>Sales by Fiscal Year and Category.rdl</Name>
       <FullPath>Sales by Fiscal Year and Category.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Order Detail by Quater.rdl</Name>
+      <FullPath>Order Detail by Quater.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>

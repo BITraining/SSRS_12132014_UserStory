@@ -16,7 +16,7 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>=Parameters!SubCategoryKey.Label</Value>
+                <Value>=iif(Parameters!SubCategoryKey.Value,Parameters!SubCategoryKey.Label,"")</Value>
                 <Style>
                   <FontSize>16pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -28,7 +28,14 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>= " in "+Parameters!Country.Value</Value>
+                <Value>= Parameters!FiscalYear.Value + " " +Parameters!FiscalQtr.Value+ " in "+Parameters!Country.Value</Value>
+                <Style>
+                  <FontSize>16pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
                 <Style>
                   <FontSize>16pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -41,7 +48,7 @@
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.03in</Top>
         <Height>0.60416in</Height>
-        <Width>7.09022in</Width>
+        <Width>6.74647in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -56,21 +63,21 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.13772in</Width>
+              <Width>1.11688in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.3148in</Width>
+              <Width>1.11688in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.41667in</Width>
+              <Width>1.48958in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.10646in</Width>
+              <Width>0.97104in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.30729in</Height>
+              <Height>0.28125in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -148,7 +155,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox32">
+                    <Textbox Name="Textbox10">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -168,7 +175,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox32</rd:DefaultName>
+                      <rd:DefaultName>Textbox10</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -227,14 +234,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox35">
+                    <Textbox Name="Textbox13">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Total:</Value>
+                              <Value>Sub Total:</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -247,7 +254,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox35</rd:DefaultName>
+                      <rd:DefaultName>Textbox13</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -260,12 +267,11 @@
                         <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox36">
+                    <Textbox Name="Textbox14">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -284,7 +290,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox36</rd:DefaultName>
+                      <rd:DefaultName>Textbox14</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -300,7 +306,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox37">
+                    <Textbox Name="Textbox15">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -311,6 +317,7 @@
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Format>'$'#,0.00;('$'#,0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -319,7 +326,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox37</rd:DefaultName>
+                      <rd:DefaultName>Textbox15</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -329,13 +336,14 @@
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
+                        <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox38">
+                    <Textbox Name="Textbox16">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -354,7 +362,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox38</rd:DefaultName>
+                      <rd:DefaultName>Textbox16</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -371,7 +379,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.30729in</Height>
+              <Height>0.28125in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -458,6 +466,7 @@
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Format>'$'#,0.00;('$'#,0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -476,6 +485,7 @@
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
+                        <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -517,6 +527,155 @@
                 </TablixCell>
               </TablixCells>
             </TablixRow>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox28">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Format>'$'#,0.00;('$'#,0.00)</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox28</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox29">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!SalesQuantity.Value)</Value>
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox29</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox30">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!SalesAmount.Value)</Value>
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Format>'$'#,0.00;('$'#,0.00)</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox30</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox31">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox31</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
@@ -531,7 +690,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>2.11459in</Size>
+                <Size>2.05209in</Size>
                 <CellContents>
                   <Textbox Name="Textbox3">
                     <CanGrow>true</CanGrow>
@@ -576,9 +735,6 @@
                 <GroupExpressions>
                   <GroupExpression>=Fields!ProductName.Value</GroupExpression>
                 </GroupExpressions>
-                <PageBreak>
-                  <BreakLocation>Between</BreakLocation>
-                </PageBreak>
               </Group>
               <SortExpressions>
                 <SortExpression>
@@ -586,7 +742,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>2.11459in</Size>
+                <Size>2.05209in</Size>
                 <CellContents>
                   <Textbox Name="ProductName1">
                     <CanGrow>true</CanGrow>
@@ -625,8 +781,49 @@
                 </TablixMember>
                 <TablixMember>
                   <Group Name="Details" />
+                  <Visibility>
+                    <Hidden>true</Hidden>
+                    <ToggleItem>ProductName1</ToggleItem>
+                  </Visibility>
                 </TablixMember>
               </TablixMembers>
+            </TablixMember>
+            <TablixMember>
+              <TablixHeader>
+                <Size>2.05209in</Size>
+                <CellContents>
+                  <Textbox Name="Textbox27">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>Total:</Value>
+                            <Style>
+                              <FontSize>11pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style />
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox27</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Color>LightGrey</Color>
+                        <Style>Solid</Style>
+                      </Border>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixHeader>
+              <KeepWithGroup>Before</KeepWithGroup>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
@@ -635,9 +832,9 @@
         <FixedColumnHeaders>true</FixedColumnHeaders>
         <FixedRowHeaders>true</FixedRowHeaders>
         <DataSetName>SalesDetail</DataSetName>
-        <Top>0.8425in</Top>
-        <Height>0.86458in</Height>
-        <Width>7.09022in</Width>
+        <Top>0.70361in</Top>
+        <Height>1.0625in</Height>
+        <Width>6.74647in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -646,10 +843,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.75917in</Height>
+    <Height>1.89111in</Height>
     <Style />
   </Body>
-  <Width>8.27772in</Width>
+  <Width>6.8321in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -676,14 +873,20 @@
           <QueryParameter Name="@Country">
             <Value>=Parameters!Country.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@FiscalQtr">
+            <Value>=Parameters!FiscalQtr.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@FiscalYear">
+            <Value>=Parameters!FiscalYear.Value</Value>
+          </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT  p.ProductName,fs.UnitPrice,fs.SalesQuantity,fs.SalesAmount,d.FullDateLabel AS OrderDate, g.RegionCountryName AS countryName FROM 
+        <CommandText>SELECT  p.ProductName,fs.UnitPrice,fs.SalesQuantity,fs.SalesAmount,d.FullDateLabel AS OrderDate FROM 
 dbo.FactSales fs INNER JOIN 
 dbo.DimProduct p ON p.ProductKey = fs.ProductKey INNER JOIN 
 dbo.DimDate d ON d.Datekey = fs.DateKey INNER JOIN 
 dbo.DimStore S ON s.StoreKey=fs.StoreKey INNER JOIN 
 dbo.DimGeography g ON s.GeographyKey=g.GeographyKey		
-WHERE p.ProductSubcategoryKey= @SubCategoryKey AND g.RegionCountryName = @Country
+WHERE p.ProductSubcategoryKey= @SubCategoryKey AND g.RegionCountryName = @Country and d.FiscalQuarterLabel=@FiscalQtr and d.FiscalYearLabel=@FiscalYear
 ORDER BY p.ProductName ASC,d.FullDateLabel DESC</CommandText>
       </Query>
       <Fields>
@@ -707,10 +910,6 @@ ORDER BY p.ProductName ASC,d.FullDateLabel DESC</CommandText>
           <DataField>OrderDate</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="countryName">
-          <DataField>countryName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
       </Fields>
     </DataSet>
     <DataSet Name="SubCategory">
@@ -732,7 +931,7 @@ ORDER BY p.ProductName ASC,d.FullDateLabel DESC</CommandText>
   </DataSets>
   <ReportParameters>
     <ReportParameter Name="SubCategoryKey">
-      <DataType>String</DataType>
+      <DataType>Integer</DataType>
       <Prompt>Sub Category</Prompt>
       <ValidValues>
         <DataSetReference>
@@ -745,6 +944,24 @@ ORDER BY p.ProductName ASC,d.FullDateLabel DESC</CommandText>
     <ReportParameter Name="Country">
       <DataType>String</DataType>
       <Prompt>Country</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FiscalQtr">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Q1,Q2,Q3,Q4</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Fiscal Qtr</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FiscalYear">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>FiscalYear 2008</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Fiscal Year</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
