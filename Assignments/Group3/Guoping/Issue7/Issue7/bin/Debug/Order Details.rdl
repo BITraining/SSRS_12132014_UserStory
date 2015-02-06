@@ -22,7 +22,7 @@
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.03in</Top>
         <Height>0.39583in</Height>
-        <Width>7.22792in</Width>
+        <Width>5.88417in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -64,6 +64,7 @@
                             <TextRun>
                               <Value>Product Name</Value>
                               <Style>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
@@ -98,6 +99,7 @@
                             <TextRun>
                               <Value>Unit Price</Value>
                               <Style>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
@@ -134,6 +136,7 @@
                             <TextRun>
                               <Value>Sales Quantity</Value>
                               <Style>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
@@ -170,6 +173,7 @@
                             <TextRun>
                               <Value>Order Date</Value>
                               <Style>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
@@ -210,7 +214,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!ProductName.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -241,6 +248,8 @@
                             <TextRun>
                               <Value>=Fields!UnitPrice.Value</Value>
                               <Style>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Format>'$'#,0.00;('$'#,0.00)</Format>
                               </Style>
                             </TextRun>
@@ -275,7 +284,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!SalesQuantity.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -307,7 +319,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!OrderDate.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -362,11 +377,62 @@
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Label>Back</Label>
+                <Value>="Back"</Value>
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>Underline</TextDecoration>
+                  <Color>Red</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <ActionInfo>
+          <Actions>
+            <Action>
+              <Drillthrough>
+                <ReportName>Sales by Fiscal Year and Category</ReportName>
+                <Parameters>
+                  <Parameter Name="Country">
+                    <Value>=Parameters!Country.Value</Value>
+                  </Parameter>
+                </Parameters>
+              </Drillthrough>
+            </Action>
+          </Actions>
+        </ActionInfo>
+        <Top>0.07167in</Top>
+        <Left>5.91195in</Left>
+        <Height>0.25in</Height>
+        <Width>1.30209in</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>1.07292in</Height>
     <Style />
   </Body>
-  <Width>7.30083in</Width>
+  <Width>7.35292in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -390,13 +456,19 @@
           <QueryParameter Name="@SubCategoryKey">
             <Value>=Parameters!SubCategoryKey.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@Country">
+            <Value>=Parameters!Country.Value</Value>
+          </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT  p.ProductName,fs.UnitPrice,fs.SalesQuantity,d.FullDateLabel AS OrderDate FROM 
+        <CommandText>SELECT  p.ProductName,fs.UnitPrice,fs.SalesQuantity,d.FullDateLabel AS OrderDate, g.RegionCountryName AS countryName FROM 
 dbo.FactSales fs INNER JOIN 
-dbo.DimProduct p ON p.ProductKey = fs.ProductKey INNER JOIN dbo.DimDate d
-ON d.Datekey = fs.DateKey
-WHERE p.ProductSubcategoryKey= @SubCategoryKey
-ORDER BY p.ProductName ASC,d.FullDateLabel DESC</CommandText>
+dbo.DimProduct p ON p.ProductKey = fs.ProductKey INNER JOIN 
+dbo.DimDate d ON d.Datekey = fs.DateKey INNER JOIN 
+dbo.DimStore S ON s.StoreKey=fs.StoreKey INNER JOIN 
+dbo.DimGeography g ON s.GeographyKey=g.GeographyKey		
+WHERE p.ProductSubcategoryKey= @SubCategoryKey AND g.RegionCountryName = @Country
+ORDER BY p.ProductName ASC,d.FullDateLabel DESC
+</CommandText>
       </Query>
       <Fields>
         <Field Name="ProductName">
@@ -413,6 +485,10 @@ ORDER BY p.ProductName ASC,d.FullDateLabel DESC</CommandText>
         </Field>
         <Field Name="OrderDate">
           <DataField>OrderDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="countryName">
+          <DataField>countryName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -445,6 +521,10 @@ ORDER BY p.ProductName ASC,d.FullDateLabel DESC</CommandText>
           <LabelField>ProductSubcategoryName</LabelField>
         </DataSetReference>
       </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Country">
+      <DataType>String</DataType>
+      <Prompt>Country</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>

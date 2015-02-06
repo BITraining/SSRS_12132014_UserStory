@@ -25,10 +25,12 @@
       <Options>
         <OutputPath>bin\Debug</OutputPath>
         <TargetServerVersion>SSRS2008R2</TargetServerVersion>
+        <TargetServerURL></TargetServerURL>
         <TargetFolder>Issue7</TargetFolder>
         <TargetDataSourceFolder>Data Sources</TargetDataSourceFolder>
         <TargetDatasetFolder>Datasets</TargetDatasetFolder>
         <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
+        <StartItem>Sales by Fiscal Year and Category.rdl</StartItem>
       </Options>
     </Configuration>
     <Configuration>

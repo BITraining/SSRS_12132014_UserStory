@@ -58,7 +58,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Sales.Value)</Value>
+                              <Value>=Sum(Fields!SalesAmountTotal.Value)</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -277,6 +277,9 @@
                                   <Parameter Name="SubCategoryKey">
                                     <Value>=Fields!SubCatgoryKey.Value</Value>
                                   </Parameter>
+                                  <Parameter Name="Country">
+                                    <Value>=Parameters!Country.Value</Value>
+                                  </Parameter>
                                 </Parameters>
                               </Drillthrough>
                             </Action>
@@ -310,7 +313,7 @@
         <RepeatColumnHeaders>true</RepeatColumnHeaders>
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>SalesDetail</DataSetName>
-        <Top>1in</Top>
+        <Top>0.75in</Top>
         <Left>0.0625in</Left>
         <Height>1.11459in</Height>
         <Width>4.45832in</Width>
@@ -335,17 +338,17 @@
           </Paragraph>
         </Paragraphs>
         <Left>0.0625in</Left>
-        <Height>0.9375in</Height>
+        <Height>0.67708in</Height>
         <Width>4.45833in</Width>
         <ZIndex>1</ZIndex>
         <DataElementOutput>NoOutput</DataElementOutput>
         <Style />
       </Textbox>
     </ReportItems>
-    <Height>2.15625in</Height>
+    <Height>1.88542in</Height>
     <Style />
   </Body>
-  <Width>4.60417in</Width>
+  <Width>4.57292in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -370,9 +373,10 @@
             <Value>=Parameters!Country.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SET DATEFORMAT mdy
+        <CommandText>
+SET DATEFORMAT mdy
 SELECT      PC.ProductCategoryName AS ProdCat, PS.ProductSubcategoryName AS SubCat,PS.ProductSubcategoryKey AS SubCatgoryKey, d.FiscalYearLabel AS OrderYear, d.FiscalQuarterLabel AS OrderQtr, 
-            SUM(FS.UnitPrice * FS.SalesQuantity) AS Sales
+            SUM(FS.SalesAmount) AS SalesAmountTotal
 FROM        dbo.FactSales FS INNER JOIN
 			dbo.DimDate D ON D.Datekey = FS.DateKey INNER JOIN
             dbo.DimProduct P ON FS.ProductKey = P.ProductKey INNER JOIN 
@@ -382,7 +386,7 @@ FROM        dbo.FactSales FS INNER JOIN
 			dbo.DimGeography g ON s.GeographyKey=g.GeographyKey		
 WHERE       g.RegionCountryName = @Country
 GROUP BY    d.FiscalYearLabel, PC.ProductCategoryName, PS.ProductSubcategoryName, PS.ProductSubcategoryKey, d.FiscalQuarterLabel
-ORDER BY pc.ProductCategoryName,ps.ProductSubcategoryName ASC,Sales DESC</CommandText>
+ORDER BY ProdCat,SubCat ASC,SalesAmountTotal DESC</CommandText>
       </Query>
       <Fields>
         <Field Name="ProdCat">
@@ -405,8 +409,8 @@ ORDER BY pc.ProductCategoryName,ps.ProductSubcategoryName ASC,Sales DESC</Comman
           <DataField>OrderQtr</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Sales">
-          <DataField>Sales</DataField>
+        <Field Name="SalesAmountTotal">
+          <DataField>SalesAmountTotal</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
