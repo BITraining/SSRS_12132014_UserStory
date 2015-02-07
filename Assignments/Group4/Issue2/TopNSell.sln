@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "TopNSell", "TopNSell\TopNSell.rptproj", "{5EE5DBDC-B171-4ED8-B6D7-38427F18F49B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5EE5DBDC-B171-4ED8-B6D7-38427F18F49B}.Debug|Default.ActiveCfg = Debug
+		{5EE5DBDC-B171-4ED8-B6D7-38427F18F49B}.Debug|Default.Build.0 = DebugLocal
+		{5EE5DBDC-B171-4ED8-B6D7-38427F18F49B}.Debug|Default.Deploy.0 = DebugLocal
+		{5EE5DBDC-B171-4ED8-B6D7-38427F18F49B}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{5EE5DBDC-B171-4ED8-B6D7-38427F18F49B}.DebugLocal|Default.Build.0 = DebugLocal
+		{5EE5DBDC-B171-4ED8-B6D7-38427F18F49B}.Release|Default.ActiveCfg = Release
+		{5EE5DBDC-B171-4ED8-B6D7-38427F18F49B}.Release|Default.Build.0 = Release
+		{5EE5DBDC-B171-4ED8-B6D7-38427F18F49B}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
