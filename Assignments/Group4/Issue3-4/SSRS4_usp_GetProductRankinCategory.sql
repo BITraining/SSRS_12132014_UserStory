@@ -12,7 +12,7 @@ as
 
 BEGIN TRY DROP TABLE ##salesCategoryRank END TRY BEGIN CATCH END CATCH
 
-select  p.productkey,pc.productcategoryname, sum(fs.salesamount)  SalesTotal,  sum(fs.salesQuantity) SalesQty,
+select  p.productkey,pc.productcategoryname, sum(fs.salesamount)  SalesTotal,  sum(fs.salesQuantity-fs.ReturnQuantity) SalesQty,
 DENSE_RANK() OVER (PARTITION BY pc.productcategoryname ORDER BY sum(fs.salesamount) DESC) AS SalesRank
 into ##salesCategoryRank
 from
@@ -29,7 +29,8 @@ group by p.productkey, pc.productcategoryname ;
 select p.productkey, p.ProductLabel, p.productname, p.ProductURL,r.ProductCategoryName, r.SalesTotal, r.SalesQty, r.SalesRank
  from dbo.DimProduct p 
  inner join  ##salesCategoryRank r on r.productkey=p.productkey
- where r.salesrank<=3;
+ where r.salesrank<=3
+ order by r.ProductCategoryName,r.SalesRank;
 
 
 -- exec usp_GetProdcutRankinCategory;
