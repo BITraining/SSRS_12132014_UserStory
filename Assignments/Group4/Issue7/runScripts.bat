@@ -1,0 +1,1 @@
+osql.exe -i ContosoRetailDW.sql -E
