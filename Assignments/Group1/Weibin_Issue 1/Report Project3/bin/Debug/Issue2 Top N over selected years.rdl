@@ -317,7 +317,7 @@
                             <Actions>
                               <Action>
                                 <Drillthrough>
-                                  <ReportName>Issue3</ReportName>
+                                  <ReportName>Issue3 Product Details</ReportName>
                                   <Parameters>
                                     <Parameter Name="prmprdtkey">
                                       <Value>=Fields!ProductKey.Value</Value>
