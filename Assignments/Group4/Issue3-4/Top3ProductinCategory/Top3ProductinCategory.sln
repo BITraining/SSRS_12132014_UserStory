@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Top3ProductinCategory", "Top3ProductinCategory\Top3ProductinCategory.rptproj", "{ACCD5BF8-F892-4000-A72F-0AB1A4064B2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACCD5BF8-F892-4000-A72F-0AB1A4064B2A}.Debug|Default.ActiveCfg = Debug
+		{ACCD5BF8-F892-4000-A72F-0AB1A4064B2A}.Debug|Default.Build.0 = Debug
+		{ACCD5BF8-F892-4000-A72F-0AB1A4064B2A}.Debug|Default.Deploy.0 = Debug
+		{ACCD5BF8-F892-4000-A72F-0AB1A4064B2A}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{ACCD5BF8-F892-4000-A72F-0AB1A4064B2A}.DebugLocal|Default.Build.0 = DebugLocal
+		{ACCD5BF8-F892-4000-A72F-0AB1A4064B2A}.Release|Default.ActiveCfg = Release
+		{ACCD5BF8-F892-4000-A72F-0AB1A4064B2A}.Release|Default.Build.0 = Release
+		{ACCD5BF8-F892-4000-A72F-0AB1A4064B2A}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
