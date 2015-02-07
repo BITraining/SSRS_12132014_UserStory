@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <Height>2in</Height>
+    <Style />
+  </Body>
+  <Width>6.5in</Width>
+  <Page>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="ContosoRetailDW">
+      <DataSourceReference>ContosoRetail</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>04eb1ddc-cd10-4e47-9860-71d41cacf1d3</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Sell">
+      <Query>
+        <DataSourceName>ContosoRetailDW</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@Subcategory">
+            <Value>=Parameters!Subcategory.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Quarter">
+            <Value>=Parameters!Quarter.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Country">
+            <Value>=Parameters!Country.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT        ProductName, SumRevenue, SumQuantity, Subcategory, CategoryKey, Category, FiscalMonth, FiscalQuarter, FiscalYear, RegionCountryName
+FROM            V_ProductTopSellSubcategoryQuarter
+WHERE        (Subcategory = @Subcategory) AND (FiscalQuarter = @Quarter) AND (RegionCountryName = @Country)</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ProductName">
+          <DataField>ProductName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SumRevenue">
+          <DataField>SumRevenue</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SumQuantity">
+          <DataField>SumQuantity</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Subcategory">
+          <DataField>Subcategory</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CategoryKey">
+          <DataField>CategoryKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Category">
+          <DataField>Category</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FiscalMonth">
+          <DataField>FiscalMonth</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="FiscalQuarter">
+          <DataField>FiscalQuarter</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FiscalYear">
+          <DataField>FiscalYear</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="RegionCountryName">
+          <DataField>RegionCountryName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="Subcategory">
+      <DataType>String</DataType>
+      <Prompt>Subcategory</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Quarter">
+      <DataType>String</DataType>
+      <Prompt>Quarter</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Country">
+      <DataType>String</DataType>
+      <Prompt>Country</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>14400fa2-c0c0-49a5-baf1-8ee6238e4674</rd:ReportID>
+</Report>
