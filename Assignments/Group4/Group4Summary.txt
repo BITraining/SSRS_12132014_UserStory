@@ -1,0 +1,37 @@
+Team : Group 4
+
+Issue #2 Top N Best Selling Products in USA
+Estimation:   15 points
+Primary owner: Sean
+Interface with other issues: issue #7
+
+Code reviewer: Megan
+Tester:Cindy
+
+
+Issue #3  Product Details
+Estimation:   15 points
+Primary owner: Cindy
+Interface with other issues:issue #4
+
+Code reviewer: Sean
+Tester:Megan
+
+
+
+Issue #4  Top 3 Best selling products under each category in USA
+Estimation:   20 points
+Primary owner: Cindy
+Interface with other issues: Issue #3
+
+Code reviewer: Megan
+Tester:Megan
+
+
+
+Issue #7  Sales breakdown by fiscal year and Category
+Estimation:  15 points
+Primary owner: Megan
+Interface with other issues: issue #4
+Code reviewer: Cindy
+Tester:Sean
