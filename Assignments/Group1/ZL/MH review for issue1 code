@@ -1,0 +1,6 @@
+prop
+Nice and pretty reports,straitforward sql writing,  excellent skills on matrix ,chart and chartline handling, reach the business aim with a beatiful done. Deeply impressed by the accurate usage of Expression to get the right results, for example the expression with SUM(   , "  ")
+
+minor concern
+There are redundant shortcuts point to the same shared datasource. 
+In one of dataset, "TOP1(year())...Order By",  may consider other choices like  Max(year())  ---best practice:  sql without "order by" clause may have better performance.
